@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Radar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <h1>Project Radar</h1>
+      <p class="tagline">Visual oversight of your development ideas and projects</p>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="controls" aria-label="Filters and search">
+      <div class="control-group">
+        <label for="filter-status">Status</label>
+        <select id="filter-status">
+          <option value="all">All statuses</option>
+          <option value="Active">Active</option>
+          <option value="Paused">Paused</option>
+          <option value="Idea">Idea</option>
+          <option value="Waiting">Waiting</option>
+        </select>
+      </div>
+      <div class="control-group">
+        <label for="filter-priority">Priority</label>
+        <select id="filter-priority">
+          <option value="all">All priorities</option>
+          <option value="High">High</option>
+          <option value="Medium">Medium</option>
+          <option value="Low">Low</option>
+        </select>
+      </div>
+      <div class="control-group control-group--search">
+        <label for="search">Search</label>
+        <input type="search" id="search" placeholder="Search name, description, notes…" autocomplete="off">
+      </div>
+    </section>
+
+    <p id="results-summary" class="results-summary" aria-live="polite"></p>
+
+    <section id="dashboard" class="dashboard" aria-label="Project cards"></section>
+
+    <p id="empty-state" class="empty-state" hidden>No projects match your filters.</p>
+  </main>
+
+  <footer class="site-footer">
+    <p>Project Radar — static demo, no backend</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
