@@ -153,4 +153,33 @@ filterStatus.addEventListener("change", onFiltersChange);
 filterPriority.addEventListener("change", onFiltersChange);
 searchInput.addEventListener("input", onFiltersChange);
 
+const THEME_STORAGE_KEY = "project-radar-theme";
+const themeToggle = document.getElementById("theme-toggle");
+
+function isDarkTheme() {
+  return document.documentElement.classList.contains("theme-dark");
+}
+
+function updateThemeToggle() {
+  const dark = isDarkTheme();
+  themeToggle.setAttribute("aria-pressed", dark ? "true" : "false");
+  themeToggle.setAttribute(
+    "aria-label",
+    dark ? "Switch to light mode" : "Switch to dark mode"
+  );
+  themeToggle.textContent = dark ? "Light mode" : "Dark mode";
+}
+
+function setTheme(dark) {
+  document.documentElement.classList.toggle("theme-dark", dark);
+  localStorage.setItem(THEME_STORAGE_KEY, dark ? "dark" : "light");
+  updateThemeToggle();
+}
+
+themeToggle.addEventListener("click", function () {
+  setTheme(!isDarkTheme());
+});
+
+updateThemeToggle();
+
 render(projects);

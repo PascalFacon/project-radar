@@ -5,6 +5,10 @@
   --text-muted: #5c6b7a;
   --border: #e2e8f0;
   --shadow: 0 2px 8px rgba(26, 35, 50, 0.08);
+  --header-bg: #1a2332;
+  --header-fg: #ffffff;
+  --input-bg: #ffffff;
+  --pill-bg: #f1f5f9;
 
   --active: #0d9488;
   --paused: #d97706;
@@ -14,6 +18,19 @@
   --high: #dc2626;
   --medium: #ca8a04;
   --low: #16a34a;
+}
+
+html.theme-dark {
+  --bg: #0f1419;
+  --surface: #1a2332;
+  --text: #e8edf4;
+  --text-muted: #94a3b8;
+  --border: #2d3a4d;
+  --shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+  --header-bg: #0a0e14;
+  --header-fg: #e8edf4;
+  --input-bg: #243044;
+  --pill-bg: #243044;
 }
 
 *,
@@ -31,14 +48,48 @@ body {
 }
 
 .site-header {
-  background: var(--text);
-  color: #fff;
+  background: var(--header-bg);
+  color: var(--header-fg);
   padding: 1.5rem 1rem;
 }
 
 .header-inner {
   max-width: 1100px;
   margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.header-text {
+  flex: 1;
+  min-width: 200px;
+}
+
+.theme-toggle {
+  flex-shrink: 0;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--header-fg);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+html.theme-dark .theme-toggle {
+  border-color: rgba(232, 237, 244, 0.35);
+}
+
+html.theme-dark .theme-toggle:hover {
+  background: rgba(232, 237, 244, 0.08);
 }
 
 .site-header h1 {
@@ -97,7 +148,8 @@ body {
   font-size: 1rem;
   border: 1px solid var(--border);
   border-radius: 6px;
-  background: #fff;
+  background: var(--input-bg);
+  color: var(--text);
 }
 
 .results-summary {
@@ -183,6 +235,26 @@ body {
   color: #475569;
 }
 
+html.theme-dark .badge--active {
+  background: #134e4a;
+  color: #5eead4;
+}
+
+html.theme-dark .badge--paused {
+  background: #7c2d12;
+  color: #fdba74;
+}
+
+html.theme-dark .badge--idea {
+  background: #312e81;
+  color: #a5b4fc;
+}
+
+html.theme-dark .badge--waiting {
+  background: #334155;
+  color: #cbd5e1;
+}
+
 .card-description {
   margin: 0;
   font-size: 0.9rem;
@@ -200,7 +272,7 @@ body {
   font-weight: 600;
   padding: 0.15rem 0.45rem;
   border-radius: 4px;
-  background: #f1f5f9;
+  background: var(--pill-bg);
   color: var(--text-muted);
 }
 
@@ -229,6 +301,33 @@ body {
 
 .pill--risk-low {
   border: 1px solid #bbf7d0;
+}
+
+html.theme-dark .pill--priority-high {
+  background: #450a0a;
+  color: #fca5a5;
+}
+
+html.theme-dark .pill--priority-medium {
+  background: #422006;
+  color: #fde047;
+}
+
+html.theme-dark .pill--priority-low {
+  background: #14532d;
+  color: #86efac;
+}
+
+html.theme-dark .pill--risk-high {
+  border-color: #7f1d1d;
+}
+
+html.theme-dark .pill--risk-medium {
+  border-color: #713f12;
+}
+
+html.theme-dark .pill--risk-low {
+  border-color: #166534;
 }
 
 .card-section {
